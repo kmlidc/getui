@@ -107,8 +107,8 @@ class GetuiTemplate
         $template->set_transmissionContent($transmission_content);
         $template->set_title($title);
         $template->set_text($text);
-        $template->set_image($image);
-        $template->set_logoURL($imageUrl);
+        if(isset($logo))$template->set_logo($logo);
+        if(isset($logoUrl))$template->set_logoURL($logoUrl);
         $template->set_isRing(isset($is_ring) ? (boolean)$is_ring : $this->is_ring);
         $template->set_isVibrate(isset($is_vibrate) ? (boolean)$is_vibrate : $this->is_vibrate);
         $template->set_isClearable(isset($is_clearable) ? (boolean)$is_clearable : $this->is_clearable);
@@ -141,6 +141,8 @@ class GetuiTemplate
         $template->set_isRing(isset($is_ring) ? (boolean)$is_ring : $this->is_ring);
         $template->set_isVibrate(isset($is_vibrate) ? (boolean)$is_vibrate : $this->is_vibrate);
         $template->set_isClearable(isset($is_clearable) ? (boolean)$is_clearable : $this->is_clearable);
+        if(isset($logo))$template->set_logo($logo);
+        if(isset($logoUrl))$template->set_logoURL($logoUrl);
 
         if (isset($begin_at) && isset($end_at)) {
             $template->set_duration(
@@ -163,6 +165,9 @@ class GetuiTemplate
         $template = new IGtNotyPopLoadTemplate();
         $template->set_appId($this->app_id);
         $template->set_appkey($this->app_key);
+
+        if(isset($logo))$template->set_logo($logo);
+        if(isset($logoUrl))$template->set_logoURL($logoUrl);
 
         // 通知栏
         $template->set_notyTitle($title);
@@ -209,6 +214,9 @@ class GetuiTemplate
         $template->set_appkey($this->app_key);
         $template->set_transmissionType((int)$transmission_type);
         $template->set_transmissionContent($transmission_content);
+
+        if(isset($logo))$template->set_logo($logo);
+        if(isset($logoUrl))$template->set_logoURL($logoUrl);
 
         if (isset($is_ios) && (bool)$is_ios) {
             // APN高级推送
